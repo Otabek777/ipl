@@ -890,6 +890,7 @@ ul, ol {
     opacity: 0;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    background: #F5F5F5 !important;
   }
 
   .header.active {
