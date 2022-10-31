@@ -260,10 +260,12 @@ ul, ol {
   padding-top: 109px;
   padding-bottom: 100px;
   background: #F0F1F9;
+  overflow: hidden;
 }
 
 .title_h2 {
   margin-bottom: 50px;
+  position: relative;
 }
 .title_h2 .h2 {
   font-weight: 800;
@@ -273,6 +275,21 @@ ul, ol {
   text-transform: uppercase;
   color: #1C3B57;
   text-align: center;
+}
+.title_h2 .link {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  color: #3968EC;
+  border-bottom: 1px dashed #3968EC;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.title_h2 .link:hover {
+  border-bottom: 1px solid #3968EC;
 }
 
 .services__wrap {
@@ -333,7 +350,9 @@ ul, ol {
   z-index: 1;
 }
 .services__item .title {
-  padding: 0 43px 0px 43px;
+  width: 100%;
+  display: block;
+  padding: 0 43px;
   font-weight: 800;
   font-size: 22px;
   line-height: 150%;
@@ -341,6 +360,21 @@ ul, ol {
   margin-bottom: 24px;
   position: relative;
   z-index: 1;
+  position: relative;
+}
+.services__item .title::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  bottom: 10px;
+  right: 43px;
+  background: url(../img/right.svg) no-repeat center;
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .services__item::before {
@@ -400,6 +434,11 @@ ul, ol {
 .services__item:hover {
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
+}
+.services__item:hover .title::after {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
 }
 
 .services__item:hover::after {
@@ -866,6 +905,14 @@ ul, ol {
 }
 
 @media screen and (max-width: 768px) {
+  .title_h2 .link {
+    display: inline-block;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 13px;
+  }
+
   .main {
     min-height: 20vh;
   }
@@ -1332,5 +1379,10 @@ ul, ol {
 
   .article {
     padding-top: 110px;
+  }
+
+  .services__item .block::after {
+    background: url(../img/services-bg.png) no-repeat top right/cover;
+    left: 20%;
   }
 }
